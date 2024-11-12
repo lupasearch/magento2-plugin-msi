@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="LupaSearch\LupaSearchPluginMSI\Model\DataProvider\StockItemConfigurationProviderInterface" type="LupaSearch\LupaSearchPluginMSI\Model\DataProvider\StockItemConfigurationProvider"/>
+    <preference for="LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceName\CollectionBuilderInterface" type="LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceName\CollectionBuilder"/>
+    <preference for="LupaSearch\LupaSearchPluginMSI\Model\StockIdByStoreIdResolverInterface" type="LupaSearch\LupaSearchPluginMSI\Model\StockIdByStoreIdResolver"/>
+    <virtualType name="LupaSearch\LupaSearchPlugin\Model\Product\CollectionModifier" type="Magento\Framework\Data\CollectionModifier">
+        <arguments>
+            <argument name="conditions" xsi:type="array">
+                <item name="quantity" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Conditions\Quantity</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceName">
+        <arguments>
+            <argument name="collectionBuilder" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceName\CollectionBuilder</argument>
+        </arguments>
+    </type>
+    <type name="LupaSearch\LupaSearchPlugin\Model\Provider\ProviderCacheComposite">
+        <arguments>
+            <argument name="instances" xsi:type="array">
+                <item name="stock_item" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\StockItemCache</item>
+                <item name="inventory_source_code" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceCodeCache</item>
+                <item name="inventory_source_name" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceNameCache</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="LupaSearch\LupaSearchPlugin\Model\Product\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="source" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Hydrator\Source</item>
+                <item name="stock" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Hydrator\Stock</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="LupaSearch\LupaSearchPluginMSI\Model\Indexer\SourceItem">
+        <arguments>
+            <argument name="full" xsi:type="object">LupaSearch\LupaSearchPlugin\Model\Indexer\Product\Action\Full</argument>
+            <argument name="rows" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Indexer\Action\SourceItemRows</argument>
+        </arguments>
+    </type>
+    <type name="LupaSearch\LupaSearchPluginMSI\Model\Indexer\Action\SourceItemRows">
+        <arguments>
+            <argument name="rows" xsi:type="object">LupaSearch\LupaSearchPlugin\Model\Indexer\Product\Action\Rows</argument>
+        </arguments>
+    </type>
+    <type name="LupaSearch\LupaSearchPluginMSI\Model\Product\Hydrator\Source">
+        <arguments>
+            <argument name="inventorySourceCode" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceCodeCache</argument>
+            <argument name="inventorySourceName" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceNameCache</argument>
+        </arguments>
+    </type>
+</config>

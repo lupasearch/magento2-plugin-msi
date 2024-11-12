@@ -1,0 +1,15 @@
+# Windows files
+Thumbs.db
+
+# IDE
+/.vscode
+/.idea
+
+# OS X
+.DS_Store
+
+# Composer
+/.phpunit.result.cache
+/vendor
+/auth.json
+/composer.lock
