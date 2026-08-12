@@ -5,8 +5,4 @@
             <indexer id="inventory"/>
         </dependencies>
     </indexer>
-    <indexer id="lupasearch_source_item" view_id="lupasearch_source_item" class="LupaSearch\LupaSearchPluginMSI\Model\Indexer\SourceItem">
-        <title translate="true">LupaSearch Source Item</title>
-        <description translate="true">Index products info to LupaSearch</description>
-    </indexer>
 </config>
