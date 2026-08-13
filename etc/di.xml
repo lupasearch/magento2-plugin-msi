@@ -49,4 +49,16 @@
             <argument name="inventorySourceName" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceNameCache</argument>
         </arguments>
     </type>
+    <type name="LupaSearch\LupaSearchPluginMSI\Model\InventoryIndexer\Indexer\SourceItem\LupaSearchUpdateProcessor">
+        <arguments>
+            <argument name="rows" xsi:type="object">LupaSearch\LupaSearchPlugin\Model\Indexer\Product\Action\Rows</argument>
+        </arguments>
+    </type>
+    <type name="Magento\InventoryIndexer\Indexer\SourceItem\Strategy\Sync">
+        <arguments>
+            <argument name="saleabilityChangesProcessorsPool" xsi:type="array">
+                <item name="lupaSearchIndexUpdateProcessor" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\InventoryIndexer\Indexer\SourceItem\LupaSearchUpdateProcessor</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
