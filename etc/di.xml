@@ -10,6 +10,14 @@
             </argument>
         </arguments>
     </virtualType>
+    <virtualType name="LupaSearch\LupaSearchPlugin\Model\Product\GeneralHydratorPool" type="LupaSearch\LupaSearchPlugin\Model\Product\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="source" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Hydrator\Source</item>
+                <item name="stock" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Hydrator\Stock</item>
+            </argument>
+        </arguments>
+    </virtualType>
     <type name="LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceName">
         <arguments>
             <argument name="collectionBuilder" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Provider\InventorySourceName\CollectionBuilder</argument>
@@ -24,12 +32,10 @@
             </argument>
         </arguments>
     </type>
-    <type name="LupaSearch\LupaSearchPlugin\Model\Product\HydratorPool">
+    <type name="LupaSearch\LupaSearchPluginMSI\Model\Indexer\SourceItem">
         <arguments>
-            <argument name="hydrators" xsi:type="array">
-                <item name="source" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Hydrator\Source</item>
-                <item name="stock" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Product\Hydrator\Stock</item>
-            </argument>
+            <argument name="full" xsi:type="object">LupaSearch\LupaSearchPlugin\Model\Indexer\Product\Action\Full</argument>
+            <argument name="rows" xsi:type="object">LupaSearch\LupaSearchPluginMSI\Model\Indexer\Action\SourceItemRows</argument>
         </arguments>
     </type>
     <type name="LupaSearch\LupaSearchPluginMSI\Model\Indexer\Action\SourceItemRows">
