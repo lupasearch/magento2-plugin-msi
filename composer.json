@@ -1,6 +1,6 @@
 {
     "name": "lupasearch/magento2-lupasearch-plugin-msi",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "description": "LupaSearch MSI module",
     "type": "magento2-module",
     "config": {
@@ -11,12 +11,12 @@
         }
     },
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.1",
         "magento/framework": "*",
         "magento/module-catalog": "*",
         "magento/module-store": "*",
         "magento/module-inventory": "*",
-        "magento/module-inventory-indexer": "*",
+        "magento/module-inventory-indexer": "^2.2.4",
         "magento/module-inventory-configuration": "*",
         "magento/module-inventory-catalog": "*",
         "magento/module-inventory-catalog-api": "*",

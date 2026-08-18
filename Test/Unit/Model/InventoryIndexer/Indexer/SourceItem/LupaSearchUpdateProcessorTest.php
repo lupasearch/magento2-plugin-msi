@@ -31,7 +31,6 @@ class LupaSearchUpdateProcessorTest extends TestCase
 
     public function testProcessEmptyIdList(): void
     {
-        $sourceItemIds = [123456];
         $saleableStatusesBeforeSync = ['sku' => [3 => true]];
         $saleableStatusesAfterSync = ['sku' => [3 => true]];
 
@@ -43,12 +42,11 @@ class LupaSearchUpdateProcessorTest extends TestCase
             ->expects($this->never())
             ->method('execute');
 
-        $this->subject->process($sourceItemIds, $saleableStatusesBeforeSync, $saleableStatusesAfterSync);
+        $this->subject->process($saleableStatusesBeforeSync, $saleableStatusesAfterSync);
     }
 
     public function testProcessIdList(): void
     {
-        $sourceItemIds = [123456];
         $saleableStatusesBeforeSync = ['sku' => [3 => false]];
         $saleableStatusesAfterSync = ['sku' => [3 => true]];
 
@@ -60,7 +58,7 @@ class LupaSearchUpdateProcessorTest extends TestCase
             ->expects($this->once())
             ->method('execute');
 
-        $this->subject->process($sourceItemIds, $saleableStatusesBeforeSync, $saleableStatusesAfterSync);
+        $this->subject->process($saleableStatusesBeforeSync, $saleableStatusesAfterSync);
     }
 
     protected function setUp(): void
