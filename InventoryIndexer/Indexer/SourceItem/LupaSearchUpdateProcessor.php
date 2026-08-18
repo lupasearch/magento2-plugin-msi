@@ -34,9 +34,7 @@ class LupaSearchUpdateProcessor implements CompositeProductProcessorInterface
     /**
      * @inheritdoc
      */
-    // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceBeforeLastUsed
     public function process(
-        array $sourceItemIds,
         array $saleableStatusesBeforeSync,
         array $saleableStatusesAfterSync
     ): void {
